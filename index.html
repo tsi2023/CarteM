@@ -5,36 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Compte à rebours</title>
         <link rel="stylesheet" href="style.css">
+
     </head>
     <body>
         <div class="container">
             <img src="arriere-plans-de-bureau-aube-autriche-brouillard-1323550.jpg" alt="Logo" class="logo">
             <div class="countdown" id="countdown"></div>
+            <div class="invite-card" id="inviteCard">
+                <button class="arrow-btn" id="arrowBtn" onclick="toggleCard()">↓</button>
+            </div>
         </div>
-        <script>
-            const targetDate = new Date("2026-12-31T23:59:59").getTime();
-
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
-
-                if (distance < 0) {
-                    clearInterval(timer);
-                    document.getElementById("countdown").innerHTML = "La date est atteinte !";
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById("countdown").innerHTML =
-                        `${days}j ${hours}h ${minutes}m ${seconds}s`;
-            }
-
-            updateCountdown();
-            const timer = setInterval(updateCountdown, 1000);
-        </script>
+        <script src="script.js"></script>
     </body>
 </html>
